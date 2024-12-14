@@ -1,7 +1,6 @@
+import { cards_data } from "./Cards";
 import { CardSection } from "./components/CardSection";
 import { HighScoreLabel } from "./components/HighScoreLabel";
-
-const cards = [];
 
 function App() {
   return (

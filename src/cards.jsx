@@ -1,0 +1,36 @@
+export const cards_data = [
+  { name: "Tinkatuff" },
+  { name: "Spearow" },
+  { name: "Talonflame" },
+  { name: "Brambleghast" },
+  { name: "Oricorio" },
+  { name: "Glameow" },
+
+  { name: "Sawsbuck" },
+  { name: "Kirlia" },
+  { name: "Misdreavus" },
+  { name: "Barbaracle" },
+  { name: "Ditto" },
+  { name: "Dusknoir" },
+
+  { name: "Rockruff" },
+  { name: "Guzzlord" },
+  { name: "Castform" },
+  { name: "Clobbopus" },
+  { name: "Dipplin" },
+  { name: "Happiny" },
+
+  { name: "Nidoking" },
+  { name: "Sizzlipede" },
+  { name: "Bastiodon" },
+  { name: "Cacnea" },
+  { name: "Hattrem" },
+  { name: "Starly" },
+
+  { name: "Kakuna" },
+  { name: "Nidorino" },
+  { name: "Purrloin" },
+  { name: "Gossifleur" },
+  { name: "Octillery" },
+  { name: "Tsareena" },
+];
