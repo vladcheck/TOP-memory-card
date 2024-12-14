@@ -4,29 +4,31 @@ function constructURL(name) {
   return "https://pokeapi.co/api/v2/pokemon/" + name.toLowerCase() + "/";
 }
 
-export function Card({ name, score, setScore }) {
-  let [url, setUrl] = useState("");
+export function Card(props) {
+  let [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
-    fetch(constructURL(name), { method: "GET", mode: "cors" })
+    fetch(constructURL(props.name), { method: "GET", mode: "cors" })
       .then((response) => response.json())
       .then((data) => {
-        setUrl(data.sprites.front_default);
+        setImageUrl(data.sprites.front_default);
       })
       .catch((e) => {
         console.log(e);
       });
-  }, [url]);
+  }, [imageUrl]);
 
   return (
     <button
       onClick={() => {
-        setScore(score + 1);
+        const name = props.name;
+        props.setScore(props.score + 1);
+        props.setClicked({ ...props.clicked, [name]: props.clicked[name] + 1 });
       }}
       className="card"
     >
-      <img src={url} alt={name} />
-      <h2 className="card-label">{name}</h2>
+      <img src={imageUrl} alt={props.name} />
+      <h2 className="card-label">{props.name}</h2>
     </button>
   );
 }

@@ -25,12 +25,26 @@ let highScore = 0;
 
 function App() {
   let [score, setScore] = useState(0);
+  let [clicked, setClicked] = useState(
+    cards_data.reduce((acc, entry) => {
+      acc[entry.name] = 0;
+      return acc;
+    }, {})
+  );
 
   highScore = score > highScore ? score : highScore;
 
   const card_elements = cards_data.map((data) => (
-    <Card name={data.name} key={data.name} setScore={setScore} score={score} />
+    <Card
+      name={data.name}
+      key={data.name}
+      setScore={setScore}
+      score={score}
+      clicked={clicked}
+      setClicked={setClicked}
+    />
   ));
+  console.log(clicked);
 
   return (
     <main>
