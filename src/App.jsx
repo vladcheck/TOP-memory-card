@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cards_data } from "./Cards";
+import { cardsData } from "./Cards";
 import { Card } from "./components/Card";
 import { CardSection } from "./components/CardSection";
 import { HighScoreLabel } from "./components/HighScoreLabel";
@@ -21,20 +21,35 @@ function randomize(cards) {
   return randomized_cards;
 }
 
+function didClickTwiceOnAny(clicked) {
+  return Object.values(clicked).some((timesClicked) => timesClicked > 1);
+}
+
+function getClickTimesPerNameObject(cardsData) {
+  return cardsData.reduce((acc, entry) => {
+    acc[entry.name] = 0;
+    return acc;
+  }, {});
+}
+
+function updateHighScore(score, highScore) {
+  return score > highScore ? score : highScore;
+}
+
 let highScore = 0;
 
 function App() {
   let [score, setScore] = useState(0);
-  let [clicked, setClicked] = useState(
-    cards_data.reduce((acc, entry) => {
-      acc[entry.name] = 0;
-      return acc;
-    }, {})
-  );
+  let [clicked, setClicked] = useState(getClickTimesPerNameObject(cardsData));
 
-  highScore = score > highScore ? score : highScore;
+  if (didClickTwiceOnAny(clicked)) {
+    setScore(0);
+    setClicked(getClickTimesPerNameObject(cardsData));
+  } else {
+    highScore = updateHighScore(score, highScore);
+  }
 
-  const card_elements = cards_data.map((data) => (
+  const card_elements = cardsData.map((data) => (
     <Card
       name={data.name}
       key={data.name}
@@ -44,13 +59,12 @@ function App() {
       setClicked={setClicked}
     />
   ));
-  console.log(clicked);
 
   return (
     <main>
       <header className="main-header">
         <h1>Memory game!</h1>
-        <HighScoreLabel high_score={highScore} max_score={cards_data.length} />
+        <HighScoreLabel high_score={highScore} max_score={cardsData.length} />
       </header>
       <CardSection>{randomize(card_elements)}</CardSection>
     </main>

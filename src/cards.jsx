@@ -1,4 +1,4 @@
-export const cards_data = [
+export const cardsData = [
   { name: "Tinkatuff" },
   { name: "Spearow" },
   { name: "Talonflame" },
