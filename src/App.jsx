@@ -4,8 +4,6 @@ import { Card } from "./components/Card";
 import { CardSection } from "./components/CardSection";
 import { HighScoreLabel } from "./components/HighScoreLabel";
 
-const card_elements = cards_data.map((data) => <Card name={data.name} key={data.name} />);
-
 function randomize(cards) {
   const indexes_buffer = [],
     randomized_indexes = [],
@@ -23,9 +21,16 @@ function randomize(cards) {
   return randomized_cards;
 }
 
+let highScore = 0;
+
 function App() {
   let [score, setScore] = useState(0);
-  let [highScore, setHighScore] = useState(0);
+
+  highScore = score > highScore ? score : highScore;
+
+  const card_elements = cards_data.map((data) => (
+    <Card name={data.name} key={data.name} setScore={setScore} score={score} />
+  ));
 
   return (
     <main>

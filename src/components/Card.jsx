@@ -4,7 +4,7 @@ function constructURL(name) {
   return "https://pokeapi.co/api/v2/pokemon/" + name.toLowerCase() + "/";
 }
 
-export function Card({ name }) {
+export function Card({ name, score, setScore }) {
   let [url, setUrl] = useState("");
 
   useEffect(() => {
@@ -19,7 +19,12 @@ export function Card({ name }) {
   }, [url]);
 
   return (
-    <button className="card">
+    <button
+      onClick={() => {
+        setScore(score + 1);
+      }}
+      className="card"
+    >
       <img src={url} alt={name} />
       <h2 className="card-label">{name}</h2>
     </button>
