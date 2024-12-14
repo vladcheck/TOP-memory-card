@@ -2,7 +2,8 @@ import { useState } from "react";
 import { cardsData } from "./Cards";
 import { Card } from "./components/Card";
 import { CardSection } from "./components/CardSection";
-import { HighScoreLabel } from "./components/HighScoreLabel";
+import { HighScoreHeader } from "./components/HighScoreHeader";
+import { ScoreHeader } from "./components/ScoreHeader";
 
 function randomize(cards) {
   const indexes_buffer = [],
@@ -63,8 +64,9 @@ function App() {
   return (
     <main>
       <header className="main-header">
+        <ScoreHeader score={score} />
         <h1>Memory game!</h1>
-        <HighScoreLabel high_score={highScore} max_score={cardsData.length} />
+        <HighScoreHeader high_score={highScore} max_score={cardsData.length} />
       </header>
       <CardSection>{randomize(card_elements)}</CardSection>
     </main>

@@ -28,9 +28,17 @@ main > * {
   padding: 10px;
 }
 
+.score-header,
 .high-score-header {
   font-size: 0.9rem;
   position: absolute;
+}
+
+.score-header {
+  left: 20px;
+}
+
+.high-score-header {
   right: 20px;
 }
 
