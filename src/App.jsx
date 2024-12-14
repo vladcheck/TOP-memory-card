@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cardsData } from "./Cards";
+import { cardsData } from "./cards.js";
 import { Card } from "./components/Card";
 import { CardSection } from "./components/CardSection";
 import { HighScoreHeader } from "./components/HighScoreHeader";
