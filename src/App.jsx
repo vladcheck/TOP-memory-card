@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { cards_data } from "./Cards";
 import { Card } from "./components/Card";
 import { CardSection } from "./components/CardSection";
 import { HighScoreLabel } from "./components/HighScoreLabel";
+
+const card_elements = cards_data.map((data) => <Card name={data.name} key={data.name} />);
 
 function randomize(cards) {
   const indexes_buffer = [],
@@ -21,17 +24,16 @@ function randomize(cards) {
 }
 
 function App() {
+  let [score, setScore] = useState(0);
+  let [highScore, setHighScore] = useState(0);
+
   return (
     <main>
       <header className="main-header">
         <h1>Memory game!</h1>
-        <HighScoreLabel max_score={cards_data.length} />
+        <HighScoreLabel high_score={highScore} max_score={cards_data.length} />
       </header>
-      <CardSection>
-        {randomize(cards_data).map((data) => (
-          <Card key={data.name} name={data.name} />
-        ))}
-      </CardSection>
+      <CardSection>{randomize(card_elements)}</CardSection>
     </main>
   );
 }
