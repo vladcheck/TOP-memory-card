@@ -65,7 +65,7 @@ function App() {
     <main>
       <header className="main-header">
         <ScoreHeader score={score} />
-        <h1>Memory game!</h1>
+        <h1>Pokemon memory game!</h1>
         <HighScoreHeader high_score={highScore} max_score={cardsData.length} />
       </header>
       <CardSection>{randomize(card_elements)}</CardSection>
