@@ -4,6 +4,7 @@ import { Card } from "./components/Card";
 import { CardSection } from "./components/CardSection";
 import { HighScoreHeader } from "./components/HighScoreHeader";
 import { ScoreHeader } from "./components/ScoreHeader";
+import { Footer } from "./components/Footer";
 
 function randomize(cards) {
   const indexes_buffer = [],
@@ -69,6 +70,7 @@ function App() {
         <HighScoreHeader high_score={highScore} max_score={cardsData.length} />
       </header>
       <CardSection>{randomize(card_elements)}</CardSection>
+      <Footer />
     </main>
   );
 }
