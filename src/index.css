@@ -43,13 +43,20 @@ main > * {
 }
 
 .card-section {
-  background-color: red;
   flex: 1;
   max-width: 1600px;
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.card {
+  width: 80%;
+  height: 90%;
+  font-size: 0.6rem;
 }
 
 .card img {
