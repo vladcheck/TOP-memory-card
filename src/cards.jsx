@@ -3,7 +3,7 @@ export const cards_data = [
   { name: "Spearow" },
   { name: "Talonflame" },
   { name: "Brambleghast" },
-  { name: "Oricorio" },
+  { name: "Pikachu" },
   { name: "Glameow" },
 
   { name: "Sawsbuck" },
@@ -19,18 +19,4 @@ export const cards_data = [
   { name: "Clobbopus" },
   { name: "Dipplin" },
   { name: "Happiny" },
-
-  { name: "Nidoking" },
-  { name: "Sizzlipede" },
-  { name: "Bastiodon" },
-  { name: "Cacnea" },
-  { name: "Hattrem" },
-  { name: "Starly" },
-
-  { name: "Kakuna" },
-  { name: "Nidorino" },
-  { name: "Purrloin" },
-  { name: "Gossifleur" },
-  { name: "Octillery" },
-  { name: "Tsareena" },
 ];
